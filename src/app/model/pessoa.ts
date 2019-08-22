@@ -1,6 +1,7 @@
 export class Pessoa {
     _id: string;
-    name: string;
-    email: string;
-    phone: string;
+    nome: string;
+    cpf: string;
+    telefone1: string;
+    telefone2: string;
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoaService } from '../../service/pessoa/pessoa.service';
+import { Pessoa } from '../../model/pessoa';
 
 @Component({
   selector: 'app-pessoas',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PessoasComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = [ 'nome', 'cpf', 'telefone1', 'telefone2'];
+  dataSource: Pessoa[];
+  isLoadingResults = true;
+  constructor( private _api: PessoaService) { }
 
   ngOnInit() {
+    this._api.getPessoas()
+    .subscribe(res => {
+      this.dataSource = res;
+      console.log(this.dataSource);
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+      this.isLoadingResults = false;
+    });
   }
 
 }
