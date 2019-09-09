@@ -4,12 +4,15 @@ import { PessoasComponent } from './pessoa/pessoas/pessoas.component';
 import { PessoaDetalheComponent } from './pessoa/pessoa-detalhe/pessoa-detalhe.component';
 import { PessoaNovoComponent } from './pessoa/pessoa-novo/pessoa-novo.component';
 import { PessoaEditarComponent } from './pessoa/pessoa-editar/pessoa-editar.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 const routes: Routes = [
+
+  // Usuario Rotas
   {
     path: 'pessoas',
     component: PessoasComponent,
-    data: {title: 'Lista Pessoas'}
+    data: {title: 'Pessoas'}
   },
   {
     path: 'pessoa-detalhe/:id',
@@ -25,6 +28,12 @@ const routes: Routes = [
     path: 'pessoa-editar',
     component: PessoaEditarComponent,
     data: {title: 'Editar Pessoa'}
+  },
+  // Usuario Rota
+  {
+    path: 'usuarios',
+    component: UsuarioComponent,
+    data: {title: 'Usuarios'}
   },
   {
     path: '',

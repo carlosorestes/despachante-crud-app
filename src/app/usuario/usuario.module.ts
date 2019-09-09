@@ -12,16 +12,14 @@ import {
   MatTableModule,
   MatToolbarModule } from  '@angular/material';
   
-import { PessoasComponent } from './pessoas/pessoas.component';
-import { PessoaDetalheComponent } from './pessoa-detalhe/pessoa-detalhe.component';
-import { PessoaNovoComponent } from './pessoa-novo/pessoa-novo.component';
-import { PessoaEditarComponent } from './pessoa-editar/pessoa-editar.component';
-import { PessoaService } from './pessoa.service';
 import { RouterModule } from '@angular/router';
-import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@angular/forms';
+import {  ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { UsuarioComponent } from './usuario.component';
+import { UsuarioService } from './usuario.service';
+
 
 @NgModule({
-  declarations: [PessoasComponent, PessoaDetalheComponent, PessoaNovoComponent, PessoaEditarComponent],
+  declarations: [UsuarioComponent],
   imports: [
     RouterModule,
     CommonModule,
@@ -40,11 +38,8 @@ import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@an
     ReactiveFormsModule
   ],
   exports:[
-    PessoasComponent,
-    PessoaDetalheComponent,
-    PessoaNovoComponent,
-    PessoaEditarComponent
+    UsuarioComponent
   ],
-  providers:[PessoaService]
+  providers:[UsuarioService]
 })
-export class PessoaModule { }
+export class UsuarioModule { }

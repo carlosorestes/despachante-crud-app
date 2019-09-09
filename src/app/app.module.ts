@@ -19,6 +19,7 @@ import {
   MatToolbarModule } from  '@angular/material';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,6 @@ import { LayoutModule } from '@angular/cdk/layout';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PessoaModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
@@ -41,7 +41,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSidenavModule,  
     MatTableModule,
     MatToolbarModule,
-    LayoutModule
+    LayoutModule,
+    PessoaModule,
+    UsuarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

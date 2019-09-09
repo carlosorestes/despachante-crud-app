@@ -1,1 +1,19 @@
-<p>pessoa-novo works!</p>
+<div>
+  <h3>Adicionar Pessoa</h3>
+</div>
+<form class="example-container" [formGroup]="pessoaForm" (ngSubmit)="addPessoa(pessoaForm.value)">
+  <mat-form-field>
+    <input matInput name="nome_pessoa" placeholder="Nome Pessoa" formControlName="nome_pessoa">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="cpf_pessoa" placeholder="CPF" formControlName="cpf_pessoa">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="telefone1_pessoa" placeholder="Telefone 1" formControlName="telefone1_pessoa">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="telefone2_pessoa" placeholder="Telefone 2" formControlName="telefone2_pessoa">
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!pessoaForm.valid" mat-button color="primary">Adicionar</button>
+</form>

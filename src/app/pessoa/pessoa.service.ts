@@ -3,7 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
-import { Pessoa } from '../../model/pessoa';
+import { Pessoa } from '../model/pessoa';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -24,6 +24,14 @@ export class PessoaService {
         tap(pessoas => console.log('leu as pessoas')),
         catchError(this.handleError('getPessoas', []))
       );
+  }
+
+  getPessoa(id: number): Observable<Pessoa> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.get<Pessoa>(url).pipe(
+      tap(_ => console.log(`leu a pessoa id=${id}`)),
+      catchError(this.handleError<Pessoa>(`getPessoa id=${id}`))
+    );
   }
 
   addPessoa (pessoa): Observable<Pessoa> {

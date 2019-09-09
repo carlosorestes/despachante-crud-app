@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PessoaService } from '../../service/pessoa/pessoa.service';
+import { PessoaService } from '../pessoa.service';
 import { Pessoa } from '../../model/pessoa';
 
 @Component({
@@ -9,7 +9,7 @@ import { Pessoa } from '../../model/pessoa';
 })
 export class PessoasComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'nome', 'cpf', 'telefone1', 'telefone2'];
+  displayedColumns: string[] = [ 'nome', 'cpf', 'telefone1', 'telefone2', 'acao'];
   dataSource: Pessoa[];
   isLoadingResults = true;
   constructor( private _api: PessoaService) { }
