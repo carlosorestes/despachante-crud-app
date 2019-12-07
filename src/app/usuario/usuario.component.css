@@ -1,3 +1,32 @@
-table {
-    width: 100%;
-  }
+   .container {
+      /* background-color: #FF5722; */
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+  
+   .formFind {
+      /* background-color: #0000ff; */
+      /* color: #fff; */
+      padding: 10px;
+      width: 50%;
+      text-align: center;
+      justify-content: space-between;
+      flex-direction: row;
+      align-content: flex-start;
+   }
+
+   .dataResul {
+    /* background-color: #37d81b; */
+    /* color: #fff; */
+    padding: 10px;
+    width: 50%;
+    justify-content: space-between;
+    flex-direction: row;
+ }
+
+ table {
+  width: 100%;
+}

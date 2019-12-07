@@ -1,35 +1,61 @@
-<div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
-    <form class="example-container" [formGroup]="usuarioForm" (ngSubmit)="findUsuarioByParam(usuarioForm.value)">
+<div class="container">
+  <div class="formFind">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Usuário</mat-card-title>
+      </mat-card-header>
+      <form class="example-container" [formGroup]="usuarioForm" (ngSubmit)="findUsuarioByParam(usuarioForm.value)">
         <mat-form-field>
-            <input matInput name="nome" placeholder="Usuario" formControlName="nome">
+          <input matInput name="nome" placeholder="Usuario" formControlName="nome">
         </mat-form-field>
         <mat-form-field>
-            <input matInput name="phone" placeholder="Telefone" formControlName="phone">
+          <input matInput name="phone" placeholder="Telefone" formControlName="phone">
         </mat-form-field>
-    
-        <button type="submit" [disabled]="!usuarioForm.valid" mat-button color="primary">Pesquisar</button>
-    </form>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z50">
+
+        <button type="submit" [disabled]="!usuarioForm.valid" mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+
+        <button type="submit" [disabled]="!usuarioForm.valid" mat-icon-button>
+          <mat-icon>add_circle</mat-icon>
+        </button>
+      </form>
+    </mat-card>
+  </div>
+  <div class="dataResul">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Resultados Pesquisa</mat-card-title>
+      </mat-card-header>
+      <table mat-table [dataSource]="dataSource">
+
         <!-- Nome Column -->
         <ng-container matColumnDef="nome">
-            <th mat-header-cell *matHeaderCellDef> Nome </th>
-            <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
         </ng-container>
-    
+
         <!-- cpf Column -->
         <ng-container matColumnDef="phone">
-            <th mat-header-cell *matHeaderCellDef> Telefone </th>
-            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+          <th mat-header-cell *matHeaderCellDef> Telefone </th>
+          <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="acao">
-            <th mat-header-cell *matHeaderCellDef> </th>
-            <td mat-cell *matCellDef="let element"> <button mat-flat-button color="accent"
-                    routerLink="/usuario-detalhe/{{element._id}}" selected>Detalhe</button></td>
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element" align="right">
+            <!-- <button mat-flat-button color="accent" routerLink="/usuario-detalhe/{{element._id}}"
+              selected>Detalhe</button> -->
+
+            <button mat-icon-button routerLink="/usuario-detalhe/{{element._id}}" selected>
+              <mat-icon>settings</mat-icon>
+            </button>
+          </td>
         </ng-container>
-    
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+      </table>
+    </mat-card>
+  </div>
 </div>
-

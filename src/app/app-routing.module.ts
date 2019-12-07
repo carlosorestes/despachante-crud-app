@@ -8,6 +8,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
 
 const routes: Routes = [
 
+  // Autenticacao
+
   // Usuario Rotas
   {
     path: 'pessoas',

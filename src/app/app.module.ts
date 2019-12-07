@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PessoaModule } from './pessoa/pessoa.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { 
   MatButtonModule,
   MatCardModule,
@@ -17,6 +18,8 @@ import {
   MatSidenavModule,
   MatTableModule,
   MatToolbarModule } from  '@angular/material';
+
+import { PessoaModule } from './pessoa/pessoa.module';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UsuarioModule } from './usuario/usuario.module';
@@ -42,6 +45,7 @@ import { UsuarioModule } from './usuario/usuario.module';
     MatTableModule,
     MatToolbarModule,
     LayoutModule,
+    FlexLayoutModule,
     PessoaModule,
     UsuarioModule
   ],
