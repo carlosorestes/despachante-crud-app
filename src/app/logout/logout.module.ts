@@ -1,24 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
-  MatButtonModule,
-  MatCardModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatProgressSpinnerModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatTableModule,
-  MatToolbarModule } from  '@angular/material';
-
-import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AuthComponent } from './auth.component';
-
+import { MatButtonModule, MatInputModule, MatCardModule, MatIconModule, MatListModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [],
   imports: [
     RouterModule,
     CommonModule,
@@ -37,4 +24,4 @@ import { AuthComponent } from './auth.component';
     ReactiveFormsModule
   ]
 })
-export class AuthModule { }
+export class LogoutModule { }

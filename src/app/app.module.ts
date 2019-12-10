@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { 
@@ -23,11 +23,15 @@ import { PessoaModule } from './pessoa/pessoa.module';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UsuarioModule } from './usuario/usuario.module';
+import { AuthModule } from './auth/auth.module';
+import { LogoutComponent } from './logout/logout.component';
+import { BasicAuthHtppInterceptorService } from './service/basic-auth-htpp-interceptor-service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +51,14 @@ import { UsuarioModule } from './usuario/usuario.module';
     LayoutModule,
     FlexLayoutModule,
     PessoaModule,
-    UsuarioModule
+    UsuarioModule,
+    AuthModule,
   ],
-  providers: [],
+  providers: [
+    {  
+      provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true 
+    }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

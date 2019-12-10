@@ -6,15 +6,13 @@
       <h1>SGDP</h1>
       <span class="menu-spacer"></span>
       <div>
-        <a mat-button [routerLink]="'/pessoas'"> Ordens </a>
-        <a mat-button [routerLink]="'/pessoas'"> Pessoas </a>
+        <a *ngIf="authService.isUserLoggedIn()" mat-button [routerLink]="'/pessoas'"> Ordens </a>
+        <a *ngIf="authService.isUserLoggedIn()" mat-button [routerLink]="'/pessoas'"> Pessoas </a>
         <!-- <a mat-button [routerLink]="'/accounts'"> Accounts </a> -->
         <!-- <a mat-button [routerLink]="'/create-account'"> Create Account </a> -->
         <!-- <a mat-button [routerLink]="'/contacts'"> Contacts </a> -->
         <!-- <a mat-button [routerLink]="'/create-contact'"> Create Contact </a> -->
-        <!-- <a mat-button [routerLink]="'/activities'"> Activities </a> -->
-        <!-- <a mat-button [routerLink]="'/create-activity'"> Create Activity </a> -->
-  
+        <!-- <a mat-button [routerLink]="'/activities'"> Activities </a> -->  
       </div>
     </mat-toolbar-row>
   
@@ -27,7 +25,9 @@
       <mat-sidenav #sidenav>
         <mat-nav-list>
     
-            <a mat-list-item [routerLink]="'/usuarios'"> Usuários </a>
+            <a *ngIf="authService.isUserLoggedIn()" mat-list-item [routerLink]="'/usuarios'"> Usuários </a>
+            <a *ngIf="authService.isUserLoggedIn()" mat-list-item [routerLink]="'/logout'"> Logout </a>
+            <a *ngIf="!authService.isUserLoggedIn()" mat-list-item [routerLink]="'/login'"> Login </a>
           <!-- <a mat-list-item [routerLink]="'/accounts'"> Accounts </a> -->
           <!-- <a mat-list-item [routerLink]="'/create-account'"> Create Account </a> -->
           <!-- <a mat-list-item [routerLink]="'/contacts'"> Contacts </a> -->
@@ -40,7 +40,6 @@
       </mat-sidenav>
       <mat-sidenav-content>
         <div style="height: 88vh;">
-    
           <router-outlet></router-outlet>
         </div>
       </mat-sidenav-content>

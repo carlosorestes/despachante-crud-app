@@ -19,7 +19,10 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   getUsuarios (): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(apiUrl)
+    let username='javainuse'
+    let password='password'
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this.http.get<Usuario[]>(apiUrl,{headers})
       .pipe(
         tap(usuarios => console.log('leu os usuarios')),
         catchError(this.handleError('getUsuarios', []))
