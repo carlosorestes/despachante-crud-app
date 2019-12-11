@@ -54,11 +54,7 @@ import { BasicAuthHtppInterceptorService } from './service/basic-auth-htpp-inter
     UsuarioModule,
     AuthModule,
   ],
-  providers: [
-    {  
-      provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true 
-    }
-    ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponent,
-    data: {title: 'Logout'}
+    data: {title: 'Logout'},
+    canActivate: [AuthService]
   },
   // Usuario Rotas
   {

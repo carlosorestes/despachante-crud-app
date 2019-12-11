@@ -30,8 +30,12 @@ export class UsuarioService {
   }
 
   getUsuario(id: number): Observable<Usuario> {
+    let username='javainuse'
+    let password='password'
+  
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     const url = `${apiUrl}/${id}`;
-    return this.http.get<Usuario>(url).pipe(
+    return this.http.get<Usuario>(url, {headers}).pipe(
       tap(_ => console.log(`leu entidade Usuario id=${id}`)),
       catchError(this.handleError<Usuario>(`getUsuario id=${id}`))
     );

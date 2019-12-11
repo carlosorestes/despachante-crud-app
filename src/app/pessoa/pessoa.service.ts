@@ -19,7 +19,11 @@ export class PessoaService {
   constructor(private http: HttpClient) { }
 
   getPessoas (): Observable<Pessoa[]> {
-    return this.http.get<Pessoa[]>(apiUrl)
+    let username='javainuse'
+    let password='password'
+  
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this.http.get<Pessoa[]>(apiUrl, {headers})
       .pipe(
         tap(pessoas => console.log('leu as pessoas')),
         catchError(this.handleError('getPessoas', []))
@@ -27,8 +31,12 @@ export class PessoaService {
   }
 
   getPessoa(id: number): Observable<Pessoa> {
+    let username='javainuse'
+    let password='password'
+  
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     const url = `${apiUrl}/${id}`;
-    return this.http.get<Pessoa>(url).pipe(
+    return this.http.get<Pessoa>(url, {headers}).pipe(
       tap(_ => console.log(`leu a pessoa id=${id}`)),
       catchError(this.handleError<Pessoa>(`getPessoa id=${id}`))
     );

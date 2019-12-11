@@ -6,6 +6,8 @@ import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http'
 })
 export class BasicAuthHtppInterceptorService implements HttpInterceptor {
 
+  constructor() { }
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
     if (sessionStorage.getItem('username') && sessionStorage.getItem('basicauth')) {
@@ -19,6 +21,4 @@ export class BasicAuthHtppInterceptorService implements HttpInterceptor {
     return next.handle(req);
 
   }
-
-  constructor() { }
 }

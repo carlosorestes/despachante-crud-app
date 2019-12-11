@@ -13,20 +13,20 @@ export class AuthService implements CanActivate {
     private httpClient: HttpClient) { }
 
   authenticate(username, password) {
-    return this.httpClient.get<Usuario>('http://localhost:8080/users/validateLogin').pipe(
-      map(
-        userData => {
-          sessionStorage.setItem('username', username);
-          let authString = 'Basic ' + btoa(username + ':' + password);
-          sessionStorage.setItem('basicauth', authString);
-          return userData;
-        }
-      )
+    console.log('Basic ' + btoa(username + ':' + password));
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this.httpClient.get<Usuario>('http://localhost:8080/users/validateLogin',{headers}).pipe(
+     map(
+       userData => {
+        sessionStorage.setItem('username',username);
+        return userData;
+       }
+     )
 
     );
   }
 
-  isUserLoggedIn(){
+  isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
     return !(user === null)
   }
@@ -36,7 +36,7 @@ export class AuthService implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.isUserLoggedIn()){
+    if (this.isUserLoggedIn()) {
       return true;
     }
 
